@@ -12,8 +12,8 @@ solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하
 * [백준사이트](https://www.acmicpc.net/)
 * [SWEA](https://swexpertacademy.com/main/main.do)
 * [solved.ac](https://solved.ac/)
-* [프로그래머스](https://programmers.co.kr/learn/challenges?tab=all_challenges)
-문제 선정 양식   
+* [프로그래머스](https://programmers.co.kr/learn/challenges?tab=all_challenges)   
+###문제 선정 양식   
 >단어뒤집기   
 >사이트 : bj   
 >티어 : s4   
