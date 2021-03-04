@@ -8,7 +8,7 @@
 
 문제 선정 방식 : 일주일 동안 5문제 (백준 4문제 + SWEA 1문제), 한 사람당 한 문제씩 선정하여 MatterMost에 채팅으로 올리기
 
->문제 선정 양식 예)
+>문제 선정 양식   
 >단어뒤집기   
 >사이트 : bj   
 >티어 : s4   
@@ -24,11 +24,11 @@
 
 문제 디렉터리에 각자 푼 문제를 추가합니다.
 
-1. 파일 생성/업로드 규칙
+1. 파일 생성/업로드 규칙   
 파일명을 n주차/bj_1000_문제명/Main_bj_문제번호_문제이름_이름.java으로 해서 추가합니다. (n주차, bj_100_문제명은 디렉터리, Main_bj_문제번호_문제이름_이름.java는 파일)
 
-2. Push 규칙   
--> pull부터 합니다.  
+2. Push 규칙      
+-> pull부터 합니다.     
 
 ``` 
 $ git pull <remote 이름> master   
@@ -46,13 +46,14 @@ $ git push <remote 이름> master
 push할 때 conflict 생길 경우 pull 한번 해주고 다시 하면 됩니다.
 
 🍌 How to Code Review
-1. Commit History로 리뷰하는 방법
-2. 
+---
+1. Commit History로 리뷰하는 방법   
+
 다른 사람이 커밋한 데다가 댓글 다는 방식 => 예시
 
-2. Pull Request로 리뷰하는 방법
+2. Pull Request로 리뷰하는 방법   
 
-fork해서 Pull Request 보내는 법
+fork해서 Pull Request 보내는 법   
 
 fork된 레포지토리 최신상태 유지하는 법
 
