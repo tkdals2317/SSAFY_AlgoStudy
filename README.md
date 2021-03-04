@@ -54,16 +54,3 @@ $ git push <remote 이름> master
 
 push할 때 conflict 생길 경우 pull 한번 해주고 다시 하면 됩니다.
 
-🍌 How to Code Review
----
-1. Commit History로 리뷰하는 방법   
-다른 사람이 커밋한 데다가 댓글 다는 방식 => 예시
-
-2. Pull Request로 리뷰하는 방법   
-fork해서 Pull Request 보내는 법   
-
-fork된 레포지토리 최신상태 유지하는 법   
-새로운 branch를 하나 만듭니다.   
-새로 만든 branch에 코드를 push합니다.   
-push 완료 후 GitHub branch 페이지에 들어오면 Pull Request(PR)할건지 버튼이 생깁니다. 클릭!   
-코드 리뷰 받고 스터디 시간 전에 merge하면 됩니다. (merge 후 branch는 삭제해도 됩니다.) 리뷰는 오픈된 PR에 하면 됩니당.
