@@ -28,14 +28,17 @@ url : https://www.acmicpc.net/problem/17413
 
 2. Push 규칙
 -> pull부터 합니다.
-
+'''
 $ git pull <remote 이름> master
+'''
 -> pull했는데 해당 주차의 디렉터리가 안보이면 따로 만들어 주세요.
 -> 프로젝트명/n주차/bj_100/bj_1000_홍길동.java 형식에 맞게 저장 후 commit&push 해주세요.
-
+'''
 $ git add .
 $ git commit -m "bj_1000_홍길동"
 $ git push <remote 이름> master
+'''
+
 push할 때 conflict 생길 경우 pull 한번 해주고 다시 하면 됩니다.
 
 🍌 How to Code Review
