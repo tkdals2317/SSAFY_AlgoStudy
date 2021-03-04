@@ -13,8 +13,8 @@
 사이트 : bj   
 티어 : s4   
 url : https://www.acmicpc.net/problem/17413   
-===
-Cancel Changes
+
+
 🍎 How to Contribute
 
 매주 새 디렉터리를 만듭니다. (ex. 1주차, 2주차 ...)
