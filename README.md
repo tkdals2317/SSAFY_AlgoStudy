@@ -10,10 +10,13 @@
 ### 문제 선정 방식    
 일주일 동안 5문제 (백준 4문제 + SWEA 1문제), 한 사람당 한 문제씩 선정하여 MatterMost에 채팅으로 올리기   
 solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하실 수 있습니다   
+
+### 알고리즘 사이트    
 * [백준사이트](https://www.acmicpc.net/)
 * [SWEA](https://swexpertacademy.com/main/main.do)
 * [solved.ac](https://solved.ac/)
 * [프로그래머스](https://programmers.co.kr/learn/challenges?tab=all_challenges)   
+
 ### 문제 선정 양식   
 >단어뒤집기   
 >사이트 : bj   
