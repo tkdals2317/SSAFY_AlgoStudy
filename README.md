@@ -26,13 +26,13 @@ url : https://www.acmicpc.net/problem/17413
 1. 파일 생성/업로드 규칙
 파일명을 n주차/bj_1000_문제명/Main_bj_문제번호_문제이름_이름.java으로 해서 추가합니다. (n주차, bj_100_문제명은 디렉터리, Main_bj_문제번호_문제이름_이름.java는 파일)
 
-2. Push 규칙
--> pull부터 합니다.
+2. Push 규칙   
+-> pull부터 합니다.   
+'''   
+$ git pull <remote 이름> master   
 '''
-$ git pull <remote 이름> master
-'''
--> pull했는데 해당 주차의 디렉터리가 안보이면 따로 만들어 주세요.
--> 프로젝트명/n주차/bj_100/bj_1000_홍길동.java 형식에 맞게 저장 후 commit&push 해주세요.
+-> pull했는데 해당 주차의 디렉터리가 안보이면 따로 만들어 주세요.   
+-> 프로젝트명/n주차/bj_100/bj_1000_홍길동.java 형식에 맞게 저장 후 commit&push 해주세요.   
 '''
 $ git add .
 $ git commit -m "bj_1000_홍길동"
