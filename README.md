@@ -1,6 +1,6 @@
-# SSAFY_AlgoStudy
-===
-싸피 4조 알고리즘 스터디 깃헙입니다
+# SSAFY_AlgoStudy   
+
+싸피 4조 알고리즘 스터디 깃허브입니다
 
 📝 Rule
 ---
@@ -15,7 +15,7 @@
 >티어 : s4   
 >url : https://www.acmicpc.net/problem/17413   
 
-***
+
 🍎 How to Contribute
 ---
 
@@ -45,7 +45,7 @@ $ git push <remote 이름> master
 ```
 
 push할 때 conflict 생길 경우 pull 한번 해주고 다시 하면 됩니다.
-***   
+
 🍌 How to Code Review
 ---
 1. Commit History로 리뷰하는 방법   
