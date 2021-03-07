@@ -27,29 +27,35 @@ solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하
 
 🍎 How to Contribute
 ---   
-1. 사용하고자 하는 워크스페이스의 프로젝트 익스플로러에서 import   
+>1. 사용하고자 하는 워크스페이스의 프로젝트 익스플로러에서 import   
 
 ![ex_screenshot](./img/use1.png)   
 
 
-2.git 검색 projects from Git 클릭 후 Next   
+>2. git 검색 projects from Git 클릭 후 Next   
 
 ![ex_screenshot](./img/use2.png)    
 
 
-3. Clone URI 선택 후 Next    
+>3. Clone URI 선택 후 Next    
 
 ![ex_screenshot](./img/use3.png)  
 
 
-4. 스터디 깃허브 사이트에 Code 누른 후 URI 복사   
+>4. 스터디 깃허브 사이트에 Code 누른 후 URI 복사   
 
 ![ex_screenshot](./img/use4.png)  
 
 
-5. 복사한 URI를 붙혀넣고 사용할 이메일과 비밀번호 기입   
+>5. 복사한 URI를 붙혀넣고 사용할 이메일과 비밀번호 기입 후 Next
 
 ![ex_screenshot](./img/use5.png)  
+
+>6. main 체크 된 상태로 Next   
+
+![ex_screenshot](./img/use6.png)  
+
+>7. 
 
 
 
