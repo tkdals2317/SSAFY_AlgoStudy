@@ -83,5 +83,6 @@ solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하
 
 push할 때 conflict 생길 경우 pull 한번 해주고 다시 하면 됩니다.
 
-### pull 후 commit 후 push하면 완료!
+### 파일 디렉토리에 옮긴 다음 add, 커밋메시지 작성하시고 commit and push하면 완료!
 
+---
