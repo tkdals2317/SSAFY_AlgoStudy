@@ -72,8 +72,8 @@ solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하
 ![ex_screenshot](./img/use10.png)  
 
 문제 디렉터리에 각자 푼 문제를 복사 후 붙혀넣기합니다. (업로드 파일 양식 Main_티어_문제번호_문제이름_이름_solved.java, Solution_티어_문제번호_이름_X.java)   
-문제를 풀었다면 파일명에 solved를 붙혀주시고 못풀었다면 X를 붙혀주세요
-![ex_screenshot](./img/use12.png)  
+문제를 풀었다면 파일명에 solved를 붙혀주시고 못풀었다면 X를 붙혀주세요   
+![ex_screenshot](./img/use12.png)     
 
 
 # pull부터 합니다!!!!!!!!!!!무조건!!!!!!!!!!!!  
