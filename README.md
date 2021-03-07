@@ -55,7 +55,7 @@ solved.ac과 백준을 연동하시면 백준사이트에서 티어를 확인하
 
 ![ex_screenshot](./img/use7.png)  
 
-8. import existing Eclipse projects 해주면 프로젝트가 생성됩니다!
+8. import existing Eclipse projects 해주면 프로젝트가 생성됩니다! 혹시 여기서 진행이 안된다면 세번째꺼로 
 
 ![ex_screenshot](./img/use8.png)   
 
