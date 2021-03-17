@@ -60,7 +60,7 @@ public class Main_bj_7576_토마토_구미_4_이준형2 {
 		br.close();
 	}
 
-	// 토마토변화 dfs 구현
+	// 토마토변화 bfs 구현
 	private static void search() {
 		while (!dequeue.isEmpty()) {
 			int size = dequeue.size();
