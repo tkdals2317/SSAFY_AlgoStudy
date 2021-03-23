@@ -49,7 +49,7 @@ public class Main_S3_14889_스타트와링크_이상민_solved {
 		
 		int startScore = 0;
 		int lickScore = 0;
-		for (int i = 0; i < start.size()-1; i++) {
+		for (int i = 0; i < start.size(); i++) {
 			for (int j = i; j < start.size(); j++) {
 				//start팀의 능력치 합 구하기 
 				startScore += arr[start.get(i)][start.get(j)];

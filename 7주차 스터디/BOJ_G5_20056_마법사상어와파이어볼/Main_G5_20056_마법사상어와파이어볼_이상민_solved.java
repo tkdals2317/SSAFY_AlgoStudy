@@ -97,9 +97,13 @@ public class Main_G5_20056_마법사상어와파이어볼_이상민_X {
 		if ((map[i][j].get(0).dir % 2) == 0) {
 			dirIsEven = true;
 		}
-		boolean even = map[i][j].get(0).dir % 2 == 0 ? true : false;
-		boolean odd = map[i][j].get(0).dir % 2 == 1 ? true : false;
-
+		
+		boolean totalDir = false;
+		
+		//boolean even = map[i][j].get(0).dir % 2 == 0 ? true : false;
+		//boolean odd = map[i][j].get(0).dir % 2 == 1 ? true : false;
+		
+		
 		for (Fireball cur : map[i][j]) {
 			mSum += cur.m;
 			sSum += cur.speed;
