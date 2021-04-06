@@ -9,16 +9,15 @@ import java.io.*;
 
 아이디어1
 모든 국가에 대해 BFS를 돌려서 현재 자신국가와 가려고하는 국가의 인구수 차이가 L과 R사이면 방문
-어레이리스트에 추가하고 셋을 통해 중복 제거한 후 그 리스트의 값의 평균으로 값을 바꿔줌 
-
+어레이리스트에 추가하고 그 리스트의 값의 평균으로 값을 바꿔줌 
+위 과정을 할때마다 카운트 해주고 while로 돌다가 더이상 바뀌는 값이 없으면 loop 탈출
 */
-public class Main_G5_16234_인구이동_이상민_X {
+public class Main_G5_16234_인구이동_이상민_solved {
 	static int N, L, R;
 	static int [][] map;
 	static boolean [][] visited;
 	static int [] di = {-1, 0, 1, 0};
 	static int [] dj = { 0, 1, 0,-1};
-	static HashSet<City> citySet;
 	static class City{
 		int ypos;
 		int xpos;
@@ -33,31 +32,7 @@ public class Main_G5_16234_인구이동_이상민_X {
 		public String toString() {
 			return "City [ypos=" + ypos + ", xpos=" + xpos + ", popu=" + popu + "]";
 		}
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + xpos;
-			result = prime * result + ypos;
-			return result;
-		}
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			City other = (City) obj;
-			if (xpos != other.xpos)
-				return false;
-			if (ypos != other.ypos)
-				return false;
-			return true;
-		}
 	
-		
 	}
 	public static void main(String[] args) throws Exception {
 		//System.setIn(new FileInputStream("res/input_bj_16234.txt"));
@@ -75,62 +50,46 @@ public class Main_G5_16234_인구이동_이상민_X {
 			st = new StringTokenizer(br.readLine(), " ");
 			for (int j = 0; j < N; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
-				//System.out.print(map[i][j]+" ");
 			}
-			//System.out.println();
 		}
-		/*citySet = new HashSet<City>();
-		citySet.add(new City(0,0,50));
-		citySet.add(new City(0,1,30));
-		citySet.add(new City(0,0,50));
-		City c1 = new City(0,0,50);
-		City c2 = new City(0,1,40);
-		System.out.println(c1.equals(c2));
-		System.out.println(citySet);*/
+	
 		int sol = 0;
 		while(true) {
-			citySet = new HashSet<City>();
 			visited = new boolean[N][N];
+			boolean canMove = false;
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
-					if(!visited[i][j]) bfs(new int[] {i,j});
+					//방문하지 않은 나라에 대해서만
+					if(!visited[i][j]) {
+						//인구수 이동이 있으면 true로 변경
+						if(bfs(new int[] {i,j})) {							
+							canMove = true;
+						}
+					}
 				}
 			}
-			//System.out.println(citySet);
-			//System.out.println(citySet.size());
-			if(citySet.size()==0) {
-				break;
-			}
-			int sum = 0;
-			for(City c : citySet) {
-				sum += c.popu;
-			}
-			int avg = sum/citySet.size();
-			System.out.println("평균 :"+avg);
-			
-			for(City c : citySet) {
-				map[c.ypos][c.xpos] = avg;
-			}
-			
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					System.out.print(map[i][j]+" ");
-				}
-				System.out.println();
-			}
+			//인구수이동이 하나도 일어나지 않았다면 loop탈출
+			if(!canMove) break;
 			sol++;
+			
 		}
-		System.out.println(sol);
-		
+		System.out.println(sol);	
 		
 		br.close();
 	}
-	private static void bfs(int[] start) {
+
+	private static boolean bfs(int[] start) {
+		//이동할 수 있는 지 없는지를 판단하는 boolean 변수
+		boolean flag = false;
 		ArrayDeque<int[]> queue = new ArrayDeque<int[]>();
+		//이동할 수 있는 나라를 저장할 어레이 리스트
+		ArrayList<City> cList = new ArrayList<City>();
+		//시작 도시 리스트에 추가
+		cList.add(new City(start[0],start[1],map[start[0]][start[1]]));
+		//시작 도시 방문처리
 		visited[start[0]][start[1]]= true;
 		queue.offer(start);
-		//int total = map[start[0]][start[1]];
-		//citySet.add(new City(start[0],start[1],map[start[0]][start[1]]));
+		
 		while(!queue.isEmpty()) {
 			int [] curr = queue.poll();
 			int ci = curr[0];
@@ -138,24 +97,36 @@ public class Main_G5_16234_인구이동_이상민_X {
 			for (int d = 0; d < 4; d++) {
 				int ni = ci+di[d];
 				int nj = cj+dj[d];
+				//범위 체크
 				if(ni<0||ni>=N||nj<0||nj>=N||visited[ni][nj]) continue;
+				//현재 나라와 가려고하는 나라의 인구수 차이
 				int diff = Math.abs(map[ci][cj]-map[ni][nj]);
+				//인구수 차이가 범위 안이라면
 				if(L<=diff&&diff<=R) {
-					citySet.add(new City(start[0],start[1],map[start[0]][start[1]]));
+					//이동이 일어나므로 true로 변경
+					flag = true;
 					visited[ni][nj] = true;
 					queue.offer(new int[] {ni, nj});
-					citySet.add(new City(ni,nj,map[ni][nj]));
+					//새로운 도시를 리스트에 추가
+					cList.add(new City(ni,nj,map[ni][nj]));
 				}
 			}
 		}
-/*		int sum = 0;
-		for (City c : citySet) {
-			sum+=c.popu;
+		int sum = 0;
+		//이동가능한 나라들이 있다면
+		if(flag) {
+			//그 나라들의 인구수 합 구하기
+			for (City city : cList) {
+				sum += city.popu;
+			}
+			//인구수 평균
+			int avg = sum/cList.size();
+			//이동가능한 나라들의 인구수를 갱신
+			for (City city : cList) {
+				map[city.ypos][city.xpos] = avg;
+			}
 		}
-		for (City c : citySet) {
-			map[c.ypos][c.xpos] = sum/citySet.size();
-		}*/
-		
+		return flag;
 	}
 	
 }
