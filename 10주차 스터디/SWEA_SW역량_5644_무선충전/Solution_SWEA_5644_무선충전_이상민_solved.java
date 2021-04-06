@@ -19,7 +19,7 @@ import java.io.*;
 7. 사용자의 초기 위치(0초)부터 충전을 할 수 있다.
 8. 같은 위치에 2개 이상의 BC가 설치된 경우는 없다. 그러나 사용자A, B가 동시에 같은 위치로 이동할 수는 있다. 사용자가 지도 밖으로 이동하는 경우는 없다.
 */
-public class Solution_SWEA_5644_무선충전_이상민_X {
+public class Solution_SWEA_5644_무선충전_이상민_solved {
 	static int [] di = {0,-1, 0 , 1,  0}; //이동하지않음, 상, 우, 하, 좌
 	static int [] dj = {0, 0, 1,  0, -1};
 	static int Ax, Ay;
@@ -58,7 +58,6 @@ public class Solution_SWEA_5644_무선충전_이상민_X {
 		int T = Integer.parseInt(br.readLine());
 		for (int tc = 1; tc <= T; tc++) {
 			total = 0;
-			
 			StringTokenizer st = new StringTokenizer(br.readLine()," ");
 			//이동시간
 			time = Integer.parseInt(st.nextToken());
@@ -86,7 +85,7 @@ public class Solution_SWEA_5644_무선충전_이상민_X {
 				bcArr[i+1] = new BC(xpos, ypos, area, power);
 			}
 			//0번 배터리를 제외하고 배터리충전량으로 내림차순 정렬
-			Arrays.sort(bcArr,1,bCnt);
+			Arrays.sort(bcArr,1,bCnt+1);
 			//System.out.println(Arrays.toString(bcArr));
 			//A,B가 충전할 수 있는 배터리 배열
 			bcA = new int[2];
@@ -128,6 +127,7 @@ public class Solution_SWEA_5644_무선충전_이상민_X {
 		br.close();
 	}
 	static void charge() {
+		if(bcA[0]==0&&bcB[0]==0) return;
 		//A가 충전가능한 첫번째 배터리와 B가 충전가능한 첫번째 배터리가 같지 않다면
 		if(bcA[0]!=bcB[0]) {
 			//각각 total에 더해줌
@@ -137,7 +137,9 @@ public class Solution_SWEA_5644_무선충전_이상민_X {
 		else if(bcA[0]!=0&&bcA[0]==bcB[0]) {
 			//어차피 둘중 하나는 가장 충전량이 가장 큰 배터리를 사용 (bcArr[bcA[0]].power)
 			//나머지 두번째 배터리를 고를때는 A가 충전가능한 배터리와 B가 충전가능한 배터리 중 충전량이 큰걸로 사용 (Math.max(bcArr[bcA[1]].power, bcArr[bcB[1]].power);)
-			total += bcArr[bcA[0]].power + Math.max(bcArr[bcA[1]].power, bcArr[bcB[1]].power);
+
+			total += bcArr[bcA[0]].power + Math.max(bcArr[bcA[1]].power, bcArr[bcB[1]].power);				
+
 		}
 	}
 	static void findBattery() {
