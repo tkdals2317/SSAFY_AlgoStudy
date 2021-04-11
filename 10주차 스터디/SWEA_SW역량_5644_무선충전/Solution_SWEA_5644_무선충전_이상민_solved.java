@@ -137,9 +137,7 @@ public class Solution_SWEA_5644_무선충전_이상민_solved {
 		else if(bcA[0]!=0&&bcA[0]==bcB[0]) {
 			//어차피 둘중 하나는 가장 충전량이 가장 큰 배터리를 사용 (bcArr[bcA[0]].power)
 			//나머지 두번째 배터리를 고를때는 A가 충전가능한 배터리와 B가 충전가능한 배터리 중 충전량이 큰걸로 사용 (Math.max(bcArr[bcA[1]].power, bcArr[bcB[1]].power);)
-
 			total += bcArr[bcA[0]].power + Math.max(bcArr[bcA[1]].power, bcArr[bcB[1]].power);				
-
 		}
 	}
 	static void findBattery() {
