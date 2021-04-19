@@ -38,10 +38,8 @@ public class Main_bj_4485_녹색옷입은애가젤다지_구미_4_이준형 {
 				}
 			}
 
-//			printmap();
 			
 			findway();
-//			printnewmap();
 
 			System.out.println("Problem" + " " + go + ":" + " " + map_new[N - 1][N - 1]);
 			go++;
