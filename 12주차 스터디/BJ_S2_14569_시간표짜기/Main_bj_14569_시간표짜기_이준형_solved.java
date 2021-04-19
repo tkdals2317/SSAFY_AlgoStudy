@@ -23,7 +23,6 @@ public class Main_bj_14569_시간표짜기_구미_4_이준형 {
 				clas[i].add(Integer.parseInt(st.nextToken()));
 			}
 		}
-//		printclas();
 
 		// 학생 입력
 		M = Integer.parseInt(br.readLine());
@@ -36,7 +35,6 @@ public class Main_bj_14569_시간표짜기_구미_4_이준형 {
 				student[i].add(Integer.parseInt(st.nextToken()));
 			}
 		}
-//		printstudnet();
 
 		// 학생 기준으로 찾기시작
 		for (int i = 0; i < M; i++) {
@@ -76,30 +74,6 @@ public class Main_bj_14569_시간표짜기_구미_4_이준형 {
 			}
 		}
 		return false;
-	}
-
-	// 학생출력
-	private static void printstudnet() {
-		for (int i = 0; i < M; i++) {
-			int k = student[i].size();
-			for (int j = 0; j < k; j++) {
-				System.out.print(student[i].get(j) + " ");
-			}
-			System.out.println();
-		}
-		System.out.println("-----------");
-	}
-
-	// 수업출력
-	private static void printclas() {
-		for (int i = 0; i < N; i++) {
-			int k = clas[i].size();
-			for (int j = 0; j < k; j++) {
-				System.out.print(clas[i].get(j) + " ");
-			}
-			System.out.println();
-		}
-		System.out.println("-----------");
 	}
 
 }
