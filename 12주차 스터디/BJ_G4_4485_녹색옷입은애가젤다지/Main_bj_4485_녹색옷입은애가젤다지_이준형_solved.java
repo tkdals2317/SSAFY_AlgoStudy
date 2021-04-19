@@ -82,25 +82,4 @@ public class Main_bj_4485_녹색옷입은애가젤다지_구미_4_이준형 {
 
 	}
 
-	// 맵출력
-	private static void printmap() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				System.out.print(map[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println("----------");
-	}
-
-	private static void printnewmap() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				System.out.print(map_new[i][j] + " ");
-			}
-			System.out.println();
-		}
-		System.out.println("----------");
-	}
-
 }
