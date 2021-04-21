@@ -25,7 +25,6 @@ public class Solution_SW역량_2117_홈방범서비스_이상민_solved {
 				st = new StringTokenizer(br.readLine(), " ");
 				for (int j = 0; j < N; j++) {
 					map[i][j] = Integer.parseInt(st.nextToken());
-					
 					if(map[i][j]==1) houseList.add(new int[] {i,j});
 				}
 			}
