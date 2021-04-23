@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main_bj_14891_톱니바퀴_구미_4_이준형 {
+public class Main {
 
 	static int[][] map;
 	static int[][] new_map;
