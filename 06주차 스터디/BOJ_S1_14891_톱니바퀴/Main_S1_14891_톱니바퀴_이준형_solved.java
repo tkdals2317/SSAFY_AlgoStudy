@@ -1,102 +1,123 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution_SW역량_4013_특이한자석_구미_4_이준형 {
+public class Main {
 
-	static int[][] map; // 맵정보
-	static int[] move; // 회전정보
+	static int[][] map;
+	static int[][] new_map;
 
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
 
-		int T = Integer.parseInt(br.readLine());
-
-		for (int tc = 1; tc <= T; tc++) {
-			int K = Integer.parseInt(br.readLine());
-
-			map = new int[5][8];
-			for (int i = 1; i <= 4; i++) {
-				st = new StringTokenizer(br.readLine());
-				for (int j = 0; j < 8; j++) {
-					map[i][j] = Integer.parseInt(st.nextToken());
-				}
+		map = new int[5][8];
+		for (int i = 1; i < 5; i++) { // 배열입력	12시 방향부터 시계방향으로 원소로 주어짐!!
+			String str = br.readLine();
+			for (int j = 0; j < 8; j++) {
+				map[i][j] = str.charAt(j) - '0';
 			}
-
-			for (int k = 0; k < K; k++) {
-
-				st = new StringTokenizer(br.readLine());
-				int num = Integer.parseInt(st.nextToken());
-				int rotate = Integer.parseInt(st.nextToken());
-				move = new int[5]; // 초기화
-				move[num] = rotate; // 처음 회전정보 넣어주기
-				search(num, -1, 6, -rotate); // 위로 탐색
-				search(num, 1, 2, -rotate); // 밑으로 탐색
-
-				rollin(); // 회전하기
-
-			}
-
-			// 답계산
-			int ans = calcans();
-
-			System.out.println("#" + tc + " " + ans);
-
 		}
 
-	}
-	
-	// 재귀로 호출
-	private static void search(int i, int go, int j, int rotate) {
-		if (i+go < 1 || i+go > 4) // 종료조건
-			return;
-		if (map[i][j] != map[i + go][(j + 4) % 8]) { // 맡닿은 정보가 다르면
-			move[i + go] = rotate;
-			search(i + go, go, j, -rotate);
+//		printmap();
+
+		int K = Integer.parseInt(br.readLine());
+		new_map = new int[5][8]; // 임시 복사를 위한 배열
+
+		for (int i = 0; i < K; i++) { // K횟수 만큼 반복
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int num = Integer.parseInt(st.nextToken()); // 톱니바퀴 위치
+			int spin = Integer.parseInt(st.nextToken()); // 회전방향 1 시계 -1 반시계
+
+			spinning(num, spin); // 자기자신 입력
+
+			if(num-1>0)	// 위로체크
+				upward(num-1,spin,0);
+			if(num+1<5)	// 아래로체크
+				downward(num+1,spin,0);
+			
+			deepcopy();	//배열 복사
+
+//			printmap();
 		}
+		
+		int ans=0;	// 점수계산 12 시방향에 S있는거
+		for(int i=1;i<5;i++) {
+			if(map[i][0]==1) {
+				ans+=Math.pow(2, i-1);
+			}
+		}
+		System.out.println(ans);
+
+		br.close();
 	}
-	
-	// 톱니바퀴 돌리기
-	private static void rollin() {
+
+	//아래로 가면서 회전 처리 재귀
+	private static void downward(int num, int spin, int flag) {
+		if(flag==1||map[num][6]==map[num-1][2]) {	//극성 같은 경우 회전없이 그대로 입력
+			flag=1;
+			for(int i=0;i<8;i++) {
+				new_map[num][i]=map[num][i];
+			}
+		}
+		else {	//극성이 다른 경우 회전
+			spin=-spin;	// 방향 전환
+			spinning(num,spin);
+		}
+		if(num+1<5)	//더 진행할수 있는지 체크
+			downward(num+1, spin, flag);
+	}
+
+	//위로 가면서 회전 처리 재귀
+	private static void upward(int num, int spin, int flag) {
+		if(flag==1||map[num][2]==map[num+1][6]) {	//극성 같은 경우 회전없이 그대로 입력
+			flag=1;
+			for(int i=0;i<8;i++) {
+				new_map[num][i]=map[num][i];
+			}
+		}
+		else {	//극성이 다른 경우 회전
+			spin=-spin;	// 방향 전환
+			spinning(num,spin);
+		}
+		if(num-1>0)	//더 진행할수 있는지 체크
+			upward(num-1, spin, flag);
+	}
+
+	// 배열 복사
+	private static void deepcopy() {
 		for (int i = 1; i < 5; i++) {
-			int first = map[i][0];
-			int last = map[i][7];
-			if (move[i] == 1) { // 시계방향
-				for (int j = 7; j > 0; j--) {
-					map[i][j] = map[i][j - 1];
-				}
-				map[i][0] = last;
-			} else if (move[i] == -1) { // 시계반대방향
-				for (int j = 0; j < 7; j++) {
-					map[i][j] = map[i][j + 1];
-				}
-				map[i][7] = first;
+			for (int j = 0; j < 8; j++) {
+				map[i][j]=new_map[i][j];
 			}
 		}
-
 	}
 
-	//점수계산
-	private static int calcans() {
-		int ans = 0;
-		int k = 1;
-		for (int i = 1; i < 5; i++) {
-			ans += (map[i][0] * k);
-			k *= 2;
+	// 배열 회전해서 입력
+	private static void spinning(int num, int spin) {
+		if (spin == 1) { // 시계회전
+			int tmp = map[num][7];
+			for (int i = 7; i > 0; i--) {
+				new_map[num][i] = map[num][i - 1];
+			}
+			new_map[num][0] = tmp;
+		} else { // 반시계회전
+			int tmp = map[num][0];
+			for (int i = 0; i < 7; i++) {
+				new_map[num][i] = map[num][i + 1];
+			}
+			new_map[num][7] = tmp;
 		}
-		return ans;
 	}
-	
-	//맵 출력
+
+	// 배열 출력
 	private static void printmap() {
-		System.out.println();
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 1; i < 5; i++) { // 배열입력
 			for (int j = 0; j < 8; j++) {
 				System.out.print(map[i][j]);
-			}System.out.println();
-		}System.out.println("------------");
+			}
+			System.out.println();
+		}
+		System.out.println("============");
 	}
-
 
 }
