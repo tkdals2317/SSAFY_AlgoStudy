@@ -19,10 +19,13 @@ public class Main_G4_15685_드래곤커브_정태현_solved {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
 		
+		//map = 드래곤커브위치표현, clist = 각 커브 돌때마다 저장
 		map = new int[101][101];
 		clist = new ArrayList<>();
+		
 		int N = Integer.parseInt(br.readLine()); //드래곤 커브 개수
 		Pos[] curve = new Pos[N]; //드래곤 커브 정보 저장
+		
 		int x, y, d, g;
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
@@ -50,6 +53,33 @@ public class Main_G4_15685_드래곤커브_정태현_solved {
 		
 		System.out.println(squareCheck());
 	}
+	private static void process(Pos curve, int y, int x) {
+		//curve의 x값과 y값이 회전한 부분이 항상 다음 점의 기준점이 된다
+		int ansx, ansy, nx, ny;
+		//x, y는 기준점
+		for (int i = 1; i <= curve.g; i++) {
+			int size = clist.size();
+			//기준점과 돌릴점을 리스트에 넣는다
+			for (int j = 0; j < size; j++) {
+				Pos cur = clist.get(j);
+				//원점 기준으로 회전 변환 행렬을 사용하기 위해
+				nx = cur.x - x;
+				ny = cur.y - y;
+				//원점 기준으로 90도 회전 변환
+				ansx = nx*cos - ny*sin;
+				ansy= nx*sin + ny*cos;
+				//다시 원점 기준에서 기준점 기준으로 변환시키기 위해 +x, +y
+				map[ansy+y][ansx+x] = 1;
+				clist.add(new Pos(ansx+x, ansy+y));					
+			}
+			//기준점 갱신, 기준점은 첫점을 기준점으로 돌린점이 된다
+			nx = (curve.x - x)*cos - (curve.y - y)*sin;
+			ny = (curve.x - x)*sin + (curve.y - y)*cos;
+			x = nx + x;
+			y = ny + y;
+		}
+	}
+	
 	private static int squareCheck() {
 		int[] xC = {1,0,1}; //상,우,대각 체크
 	    int[] yC = {0,1,1};
@@ -75,33 +105,7 @@ public class Main_G4_15685_드래곤커브_정태현_solved {
 		
 	    return squarecnt;
 	}
-	private static void process(Pos curve, int y, int x) {
-		int ty, tx, ansx, ansy, nx, ny;
-		//x, y는 기준점
-		for (int i = 1; i <= curve.g; i++) {
-			int size = clist.size();
-			//기준점과 돌릴점을 리스트에 넣는다
-			for (int j = 0; j < size; j++) {
-				Pos cur = clist.get(j);
-				//원점 기준으로 회전 변환 행렬을 사용하기 위해
-				nx = cur.x - x;
-				ny = cur.y - y;
-				//원점 기준으로 90도 회전 변환
-				ansx = nx*cos - ny*sin;
-				ansy= nx*sin + ny*cos;
-				//다시 원점 기준에서 기준점 기준으로 변환시키기 위해 +x, +y
-				if(map[ansy+y][ansx+x]==0) {
-				} //아님
-				map[ansy+y][ansx+x] = 1;
-				clist.add(new Pos(ansx+x, ansy+y));					
-			}
-			//기준점 갱신, 기준점은 첫점을 기준점으로 돌린점이 된다
-			tx = (curve.x - x)*cos - (curve.y - y)*sin;
-			ty = (curve.x - x)*sin + (curve.y - y)*cos;
-			x = tx + x;
-			y = ty + y;
-		}
-	}
+	
 	static class Pos {
 		int x, y;
 		int d; //방향
