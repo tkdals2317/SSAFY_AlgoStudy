@@ -32,7 +32,10 @@ public class Main_bj_1916_최소비용구하기_구미_4_이준형2 {
 			int i=Integer.parseInt(st.nextToken());
 			int j=Integer.parseInt(st.nextToken());
 			int num=Integer.parseInt(st.nextToken());
-			map[i][j]=num;
+			if(map[i][j]!=-1)
+				map[i][j]=Math.min(map[i][j], num);
+			else
+				map[i][j]=num;
 		}
 		
 		st=new StringTokenizer(br.readLine());
