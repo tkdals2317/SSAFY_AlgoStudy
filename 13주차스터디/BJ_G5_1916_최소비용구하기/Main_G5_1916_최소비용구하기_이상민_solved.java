@@ -35,7 +35,7 @@ public class Main_G5_1916_최소비용구하기_이상민_solved {
 				adjList[i][j] = INF;
 			}
 		}
-		
+
 		for (int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			int from = Integer.parseInt(st.nextToken())-1;
@@ -81,7 +81,7 @@ public class Main_G5_1916_최소비용구하기_이상민_solved {
 			if(curr.vertex==end) break;
 
 			for (int c = 0; c < N; c++) {
-				// 1. 방문하지 않은 정점인가 
+				// 1. 방문하지 않은 정점인가 ?
 				// 2. 현재 도시와 c도시가 연결이 되었는가? 
 				// 3. 위 조건을 만족하고 출발지에서 현재도시를 거쳐 c도시로 가는 비용이 c도시로 가는 비용보다 작다면 
 				if(!visited[c]&&adjList[curr.vertex][c]>=0&&distance[c]>curr.totalDistance+adjList[curr.vertex][c]) {
