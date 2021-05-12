@@ -10,6 +10,7 @@ public class Main_B1_9093_단어뒤집기_이상민 {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < N; i++) {
 			String str = br.readLine(); 
+			//System.out.println(str);
 			StringTokenizer st = new StringTokenizer(str," ");
 			//hasMoreElements() 스트링토크나이저의 토큰이 남아 있는지 확인
 			//st.countToken()으로 for문 돌리면 안됌! 스택과 비슷한 원리
@@ -18,9 +19,11 @@ public class Main_B1_9093_단어뒤집기_이상민 {
 				String token = st.nextToken();
 				//System.out.println(token);
 				//역순으로 스트링빌더에 append
-				for (int k = token.length()-1; k >=0 ; k--) {
-					sb.append(token.charAt(k));
-				}
+				StringBuilder sb2 = new StringBuilder(token);
+				//for (int k = token.length()-1; k >=0 ; k--) {
+				//	sb.append(token.charAt(k));
+				//}
+				sb.append(sb2.reverse().toString());
 				//한개의 단어 처리가 끝난 후 띄어쓰기 append
 				sb.append(" ");
 			}

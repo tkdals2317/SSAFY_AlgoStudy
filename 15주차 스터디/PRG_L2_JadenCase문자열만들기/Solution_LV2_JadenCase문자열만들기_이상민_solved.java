@@ -4,6 +4,17 @@ class Solution {
     public String solution(String s) {
         StringBuilder sb = new StringBuilder();
         s = s.toLowerCase();
+        
+        //char형 쉽게 대소문자 바꾸기1
+        /*char c = 'c';
+        String test = "Hello";
+        //뒤에 ""을 붙혀주면 String으로 변환 되므로 toUpperCase(), toLowerCase()를 사용 가능하다
+        String sH = test.charAt(0)+"";
+        String s2 = c+"";
+        System.out.println(sH.toLowerCase());
+        System.out.println(s2.toUpperCase());*/
+        
+        
         char [] cArr = s.toCharArray();
         //System.out.println(Arrays.toString(cArr));
         //첫 글자가 소문자일 경우 대문자로 변경
