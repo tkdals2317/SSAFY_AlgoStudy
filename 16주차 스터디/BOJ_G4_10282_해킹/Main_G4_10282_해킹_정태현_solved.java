@@ -20,15 +20,12 @@ public class Main_G4_10282_해킹_정태현_solved {
 			st = new StringTokenizer(br.readLine(), " ");
 			int n = Integer.parseInt(st.nextToken());
 			int d = Integer.parseInt(st.nextToken());
-			int c = Integer.parseInt(st.nextToken());
-			//각 정점으로의 최단 거리
-			int[] dist = new int[n];
-			//리스트를 인접행렬기능을 하게 사용
+			int c = Integer.parseInt(st.nextToken()) - 1;
+			//리스트를 인접행렬기능을 하게 사용 => 인접리스트
 			List<int[]> list[] = new ArrayList[n];
 			for (int i = 0; i < n; i++) { 
 				list[i] = new ArrayList<int[]>(); 
 			}
-			Arrays.fill(dist, Integer.MAX_VALUE);
 			
 			for (int i = 0; i < d; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
@@ -38,8 +35,6 @@ public class Main_G4_10282_해킹_정태현_solved {
 				//a는 b에 의존
 				list[b].add(new int[] {a, s});
 			}
-			//출발점 본인
-			dist[c] = 0;
 			
 			PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
 				@Override
@@ -48,22 +43,28 @@ public class Main_G4_10282_해킹_정태현_solved {
 				}
 			});
 			
+			//각 정점으로의 최단 거리
+			int[] dist = new int[n];
+			//출발점 본인
+			Arrays.fill(dist, Integer.MAX_VALUE);
+			dist[c] = 0;
+			
 			pq.offer(new int[] {c, 0});
 			
 			while(!pq.isEmpty()) {
 				int[] cur = pq.poll();
 				//현재 번호, 가중치
-				int cur_num = cur[0];
-				int cur_wei = cur[1];
+				int now_num = cur[0];
+				int now_val = cur[1];
 				//의존하는 컴퓨터 개수만큼
-				for (int i = 0; i < list[cur_num].size(); i++) {
+				for (int i = 0; i < list[now_num].size(); i++) {
 					//해당 컴퓨터의 정보를 list에서 get
-					int[] next = list[cur_num].get(i);
-					int next_num = cur[0];
-					int next_wei = cur[1];
-					//거쳐서 가는게 더 짧다
-					if(dist[next_num] > cur_wei + next_wei) {
-						dist[next_num] = cur_wei + next_wei;
+					int[] next = list[now_num].get(i);
+					int next_num = next[0];
+					int next_val = next[1];
+					//시간이 더 짧은 것을 계속 업데이트
+					if(dist[next_num] > now_val + next_val) {
+						dist[next_num] = now_val + next_val;
 						pq.offer(new int[] {next_num, dist[next_num]});
 					}
 				}
@@ -73,8 +74,11 @@ public class Main_G4_10282_해킹_정태현_solved {
 			int ans2 = 0; //마지막 컴퓨터 감염까지 걸리는 시간
 			for (int i = 0; i < n; i++) {
 				if(dist[i] != Integer.MAX_VALUE) ans1++;
+				//이 중 최대값을 저장
 				if(dist[i] != Integer.MAX_VALUE && ans2<dist[i]) ans2 = dist[i];
 			}
+			
+			System.out.println(ans1+ " "+ans2);
 		
 		}
 		
