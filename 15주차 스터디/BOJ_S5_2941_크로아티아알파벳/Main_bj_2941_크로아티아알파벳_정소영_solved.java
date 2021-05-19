@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main_bj_2941_크로아티아알파벳_정소영_solved {
-	static String[] croatia = {"c=", "c-","dz=","d-","lj","nj","s=","z="};
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
