@@ -10,6 +10,15 @@ import java.util.StringTokenizer;
  * 시작 점에서 거리가 최소인 정점을 선택하면서 최단 경로를 구하는 알고리즘
  * 탐욕 기법을 사용
  */
+/*
+5
+0 2 2 5 9
+2 0 3 4 8
+2 3 0 7 6
+5 4 7 0 5
+9 8 6 5 0
+output => 8
+ */
 public class Algo_Dijkstra {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
