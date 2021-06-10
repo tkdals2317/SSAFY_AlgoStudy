@@ -62,6 +62,6 @@ class Solution {
 			else
 				start = mid + 1; // 중간값이 원하는 값보다 작을 경우, 시작값을 중간값+1로 설정하여 다시 탐색
 		}
-		return arr.size() - start;
+		return arr.size() - start; // 이분탐색이 끝나고 start의 값은 score의 값과 같거나 큰 원소중 첫번째 원소의 위치가 반환
 	}
 }
