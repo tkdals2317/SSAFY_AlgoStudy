@@ -1,4 +1,4 @@
-package gold;
+ackage gold;
 
 import java.io.*;
 import java.util.*;
@@ -10,6 +10,7 @@ public class bj_2573_G4 {
 	static int[][] dir = { { -1, 1, 0, 0 }, { 0, 0, -1, 1 } }; // 4방 탐색
 
 	public static void main(String[] args) throws Exception {
+		// 입력 시작 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		X = Integer.parseInt(st.nextToken());
