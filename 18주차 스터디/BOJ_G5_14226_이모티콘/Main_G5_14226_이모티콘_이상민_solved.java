@@ -71,10 +71,11 @@ public class Main_G5_14226_이모티콘_이상민 {
 			}
 			// 3. 화면에 있는 이모티콘 중 하나를 삭제한다.
 			// 화면에 이모티콘이 있고 dp에 저장된 시간보다 소요된 시간이 짧은 경우에만 큐에 삽입
+			// 화면글자 : 3 클립보드 : 2 
 			if(current.length>0&&dp[current.length-1][current.clipboard]>current.time+1) {
 				queue.offer(new Order("한글자 삭제",current.length-1, current.clipboard, current.time+1));
 				//dp배열 갱신
-				dp[current.length-1][current.clipboard]= current.time+1;
+				dp[current.length-1][current.clipboard] = current.time+1;
 			}
 		}
 		

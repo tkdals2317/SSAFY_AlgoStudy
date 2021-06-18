@@ -6,7 +6,7 @@ class Solution_LV1_완주하지못한선수_이상민_solved_Hash {
         //이 문제는 결국 엄청 많은 문자열을 어떻게 효율적으로 비교할 것인지에 대한 것
         //해싱(Hashing)은 문자열을 빠르게 검색하고 비교할 수 있도록 해주는 기법
         
-
+        
         HashMap<String, Integer> hm = new HashMap<>();
         //HashMap의 key는 중복이 없으므로 여러 이름을 넣을 수 없다
         //=> hm.getOrDefault(key, 0) : key가 이미 존재한다면 value를 반환, 없다면 0을 반환
@@ -41,6 +41,7 @@ class Solution_LV1_완주하지못한선수_이상민_solved_Hash {
         
         //map에 하나를 put 할 때마다 map 안에 같은 문자열이 있는지를 검색해야하니 느릴 것 같지만,
         //해싱 기법의 특성 상 검색 및 문자열 비교가 매우 빠르기 때문에 일반적인 방법보다 훨씬 빠름
+        
         return answer;
     }
 }
