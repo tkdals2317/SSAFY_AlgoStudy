@@ -72,8 +72,8 @@ class Node implements Comparable<Node> {
 	Node(int to, int cost) {
 		this.to = to;
 		this.cost = cost;
-	}
-
+	} 
+ 
 	@Override
 	public int compareTo(Node o) {
 		// TODO Auto-generated method stub
