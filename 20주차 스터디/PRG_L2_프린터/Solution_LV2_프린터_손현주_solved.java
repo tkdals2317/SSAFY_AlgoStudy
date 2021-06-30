@@ -3,20 +3,11 @@ import java.util.*;
 
 public class prg_프린터 {
 
-	static class Pair implements Comparable<Pair> { // pair 클래스 생성
+	static class Pair { // pair 클래스 생성
 		int priority, index;// 중요도와 대기 순번
-
 		Pair(int priority, int index) {
 			this.priority = priority;
 			this.index = index;
-		}
-
-		@Override
-		public int compareTo(Pair o) {
-			if (this.priority == o.priority) {// 중요도가 동일하면
-				return Integer.compare(this.index, o.index);// 대기목록 순위 기준 오름차순
-			}
-			return Integer.compare(o.priority, this.priority); // 중요도 내림차순
 		}
 	}
 
@@ -39,7 +30,6 @@ public class prg_프린터 {
 				readyQueue.offer(new Pair(readyQueue.peek().priority, readyQueue.peek().index));//맨뒤로 추가
 			readyQueue.poll();//내차례 끝났으니까 뽑아준다.
 		}
-
 		return answer;
 	}
 
