@@ -17,14 +17,11 @@ public class Soulition_programmers_level3_광고삽입 {
             int start = convertTime(sArr[0]); // 시작시간 초로 변환
             int end = convertTime(sArr[1]);	// 종료시간 초로 변환
             
-            arr[start]++; // 시작시간 표시
-            arr[end]--; // 종료시간 표시
+            for (int j = start; j < end; j++) // 광고 재생했던 횟수 증가
+                arr[j]++;
         }
-
-        for(int i = 1; i < arr.length; i++) // 시청 시간 표시
-        	arr[i] += arr[i - 1];
         
-        for(int i = 1; i < arr.length; i++)  //전체 누적 시간  ( 누적합 )
+        for(int i = 1; i < arr.length; i++)  //전체 누적 시청 시간  ( 누적합 )
         	arr[i] += arr[i - 1];
         
         int adtime = convertTime(adv_time); // 총 광고시간 몇초인지 계산
