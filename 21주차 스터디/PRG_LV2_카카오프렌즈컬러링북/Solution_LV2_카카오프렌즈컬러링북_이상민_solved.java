@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-class Solution_LV2_Ä«Ä«¿ÀÇÁ·»ÁîÄÃ·¯¸µºÏ_ÀÌ»ó¹Î_solved {
+class Solution_LV2_ì¹´ì¹´ì˜¤í”„ë Œì¦ˆì»¬ëŸ¬ë§ë¶_ì´ìƒë¯¼_solved {
     static boolean [][] visited;
     static int numberOfArea;
     static int maxSizeOfOneArea;

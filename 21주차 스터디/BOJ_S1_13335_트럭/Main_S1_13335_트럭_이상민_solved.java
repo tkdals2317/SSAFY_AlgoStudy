@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main_S1_13335_Æ®·°_ÀÌ»ó¹Î {
+public class Main_S1_13335_íŠ¸ëŸ­_ì´ìƒë¯¼_solved {
 	static int N, W, L; 
 	static public class Truck {
 		int weight;
@@ -16,12 +16,12 @@ public class Main_S1_13335_Æ®·°_ÀÌ»ó¹Î {
 		
 	}
 	public static void main(String[] args) throws Exception{
-		System.setIn(new FileInputStream("res/input_13335_Æ®·°.txt"));
+		System.setIn(new FileInputStream("res/input_13335_íŠ¸ëŸ­.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); //Æ®·°ÀÇ °¹¼ö
-		W = Integer.parseInt(st.nextToken()); //´Ù¸®ÀÇ ±æÀÌ
-		L = Integer.parseInt(st.nextToken()); //´Ù¸®ÀÇ ÃÖ´ëÇÏÁß
+		N = Integer.parseInt(st.nextToken()); //íŠ¸ëŸ­ì˜ ê°¯ìˆ˜
+		W = Integer.parseInt(st.nextToken()); //ë‹¤ë¦¬ì˜ ê¸¸ì´
+		L = Integer.parseInt(st.nextToken()); //ë‹¤ë¦¬ì˜ ìµœëŒ€í•˜ì¤‘
 		
 		//Truck [] trucks = new Truck[N];
 		ArrayDeque<Truck> trucks = new ArrayDeque<>();
@@ -40,19 +40,19 @@ public class Main_S1_13335_Æ®·°_ÀÌ»ó¹Î {
 		
 		while(!trucks.isEmpty()) {
 			totaltime++;
-			//´Ù¸®¿¡ ¿Ã¶ó¿Â ¸ğµç Æ®·°ÀÇ ½Ã°£À» Áõ°¡½ÃÄÑÁØ´Ù
+			//ë‹¤ë¦¬ì— ì˜¬ë¼ì˜¨ ëª¨ë“  íŠ¸ëŸ­ì˜ ì‹œê°„ì„ ì¦ê°€ì‹œì¼œì¤€ë‹¤
 			for(int i = 0; i < bridge.size(); i++) {
 				bridge.get(i).time++;
 			}
-			//Æ®·°ÀÌ ´Ù¸®¸¦ Áö³ª µµÂøÇÑ´Ù¸é
-			//¸¸¾à Áõ°¡½ÃÅ°°í ³­ ÈÄ °¡Àå ¸ÕÀú µé¾îÀº(Áï ÀÎµ¦½º°¡ 0ÀÎ)Æ®·°ÀÇ ¼Ò¿ä½Ã°£ÀÌ ´Ù¸®±æÀÌ¿Í °°¾ÆÁø´Ù¸é
+			//íŠ¸ëŸ­ì´ ë‹¤ë¦¬ë¥¼ ì§€ë‚˜ ë„ì°©í•œë‹¤ë©´
+			//ë§Œì•½ ì¦ê°€ì‹œí‚¤ê³  ë‚œ í›„ ê°€ì¥ ë¨¼ì € ë“¤ì–´ì€(ì¦‰ ì¸ë±ìŠ¤ê°€ 0ì¸)íŠ¸ëŸ­ì˜ ì†Œìš”ì‹œê°„ì´ ë‹¤ë¦¬ê¸¸ì´ì™€ ê°™ì•„ì§„ë‹¤ë©´
 			if(!bridge.isEmpty()&&bridge.get(0).time>W) {
-				//´Ù¸®À§ÀÇ ¹«°Ô¿¡¼­ µµÂøÇÑ Æ®·°ÀÇ ¹«°Ô¸¦ »©ÁØ´Ù
+				//ë‹¤ë¦¬ìœ„ì˜ ë¬´ê²Œì—ì„œ ë„ì°©í•œ íŠ¸ëŸ­ì˜ ë¬´ê²Œë¥¼ ë¹¼ì¤€ë‹¤
 				weightSum -= bridge.get(0).weight;
-				//´Ù¸®À§¿¡¼­ Æ®·° Á¦°Å
+				//ë‹¤ë¦¬ìœ„ì—ì„œ íŠ¸ëŸ­ ì œê±°
 				bridge.remove(0);
 			}
-			//´ÙÀ½ ´Ù¸®¿¡ ÁøÀÔÇÒ Æ®·°ÀÇ ¹«°Ô¿Í ÇöÀç ´Ù¸®À§ÀÇ ¹«°Ô¸¦ ´õÇÑ °ªÀÌ ´Ù¸®ÀÇ ÃÖ´ëÇÏÁßº¸´Ù ÀÛ´Ù¸é
+			//ë‹¤ìŒ ë‹¤ë¦¬ì— ì§„ì…í•  íŠ¸ëŸ­ì˜ ë¬´ê²Œì™€ í˜„ì¬ ë‹¤ë¦¬ìœ„ì˜ ë¬´ê²Œë¥¼ ë”í•œ ê°’ì´ ë‹¤ë¦¬ì˜ ìµœëŒ€í•˜ì¤‘ë³´ë‹¤ ì‘ë‹¤ë©´
 			if(trucks.peek().weight+weightSum <= L && bridge.size()<W) {
 				Truck current = trucks.poll();
 				weightSum += current.weight;
@@ -60,9 +60,9 @@ public class Main_S1_13335_Æ®·°_ÀÌ»ó¹Î {
 				bridge.add(current);
 			}
 		}	
-		//¸¶Áö¸· Æ®·°ÀÌ ³²¾ÆÀÖ´Â °æ¿ì
+		//ë§ˆì§€ë§‰ íŠ¸ëŸ­ì´ ë‚¨ì•„ìˆëŠ” ê²½ìš°
 		if(bridge.size()>0) {
-			//´Ù¸®±æÀÌ¸¸Å­ ÃÑ½Ã°£À» ´õÇØÁØ´Ù
+			//ë‹¤ë¦¬ê¸¸ì´ë§Œí¼ ì´ì‹œê°„ì„ ë”í•´ì¤€ë‹¤
 			totaltime+=W;
 		}
 		System.out.println(totaltime);

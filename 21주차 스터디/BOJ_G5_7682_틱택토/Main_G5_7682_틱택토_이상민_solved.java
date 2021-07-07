@@ -1,15 +1,15 @@
 import java.io.*;
 import java.util.*;
-public class Main_G5_7682_Æ½ÅÃÅä_ÀÌ»ó¹Î_solved {
+public class Main_G5_7682_í‹±íƒí† _ì´ìƒë¯¼_solved {
 
 	public static void main(String[] args) throws Exception {
-		System.setIn(new FileInputStream("res/input_7682_Æ½ÅÃÅä.txt"));
+		System.setIn(new FileInputStream("res/input_7682_í‹±íƒí† .txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String status = "";
 		StringBuilder sb = new StringBuilder();
 		do {
 			status = br.readLine();
-			//ÀÔ·Â Á¾·á Á¶°Ç
+			//ì…ë ¥ ì¢…ë£Œ ì¡°ê±´
 			if(status.equals("end")) break;	
 			sb.append(Solution(status)).append("\n");		
 		}while(true);
@@ -28,21 +28,21 @@ public class Main_G5_7682_Æ½ÅÃÅä_ÀÌ»ó¹Î_solved {
 			else if(c=='O') oCnt++;
 			else dCnt++;
 		}
-		//¾ÆÁ÷ µÎÁö ¾ÊÀº °ø°£ÀÌ ÀÖ´Â °æ¿ì
+		//ì•„ì§ ë‘ì§€ ì•Šì€ ê³µê°„ì´ ìˆëŠ” ê²½ìš°
 		if(dCnt>0) {
 			if(xCnt<oCnt&&Math.abs(xCnt-oCnt)>1) return "invalid";
-			//O°¡ ¸¶Áö¸·À¸·Î ³õÀº °æ¿ì O°¡ ÀÌ°Ü¾ßÇÔ
+			//Oê°€ ë§ˆì§€ë§‰ìœ¼ë¡œ ë†“ì€ ê²½ìš° Oê°€ ì´ê²¨ì•¼í•¨
 			if(xCnt==oCnt) {
 				if(Check(map,'O')&&!Check(map,'X')) return "valid";
 				else return "invalid";
-			//X°¡ ¸¶Áö¸·À¸·Î ³õÀº °æ¿ì X°¡ ÀÌ°Ü¾ßÇÔ
+			//Xê°€ ë§ˆì§€ë§‰ìœ¼ë¡œ ë†“ì€ ê²½ìš° Xê°€ ì´ê²¨ì•¼í•¨
 			}else if(xCnt-oCnt==1) {
 				if(!Check(map,'O')&&Check(map,'X')) return "valid";
 				else return "invalid";
 			}
-		//9Ä­À» ¸ğµÎ ´Ù µĞ °æ¿ì
+		//9ì¹¸ì„ ëª¨ë‘ ë‹¤ ë‘” ê²½ìš°
 		}else {
-			//xCnt°¡ 5°³ oCnt 4°³°¡ ¾Æ´Ï°Å³ª, O°¡ ÀÌ±â¸é invalid
+			//xCntê°€ 5ê°œ oCnt 4ê°œê°€ ì•„ë‹ˆê±°ë‚˜, Oê°€ ì´ê¸°ë©´ invalid
 			if(xCnt-oCnt!=1 || Check(map,'O')) return "invalid";
 			return "valid";
 		}
@@ -50,15 +50,15 @@ public class Main_G5_7682_Æ½ÅÃÅä_ÀÌ»ó¹Î_solved {
 		return "invalid";
 	}
 	private static boolean Check(char[][] map, char c) {
-		//°¡·Î °Ë»ç
+		//ê°€ë¡œ ê²€ì‚¬
 		for(int i = 0; i < 3; i++) {
 			if(map[i][0]== c && map[i][1]== c && map[i][2]== c) return true;
 		}
-		//»õ·Î °Ë»ç
+		//ìƒˆë¡œ ê²€ì‚¬
 		for(int i = 0; i < 3; i++) {
 			if(map[0][i]== c && map[1][i]== c && map[2][i]== c) return true;
 		}
-		//´ë°¢¼± °Ë»ç
+		//ëŒ€ê°ì„  ê²€ì‚¬
 		if(map[0][0]==c && map[1][1]==c && map[2][2]==c) return true;
 		if(map[0][2]==c && map[1][1]==c && map[2][0]==c) return true;
 		
