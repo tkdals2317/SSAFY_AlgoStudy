@@ -40,7 +40,7 @@ public class Main_S1_13335_트럭_이상민_solved {
 		
 		while(!trucks.isEmpty()) {
 			totaltime++;
-			//다리에 올라온 모든 트럭의 시간을 증가시켜준다
+			//1. 다리에 올라온 모든 트럭의 시간을 증가시켜준다
 			for(int i = 0; i < bridge.size(); i++) {
 				bridge.get(i).time++;
 			}
@@ -49,14 +49,13 @@ public class Main_S1_13335_트럭_이상민_solved {
 			if(!bridge.isEmpty()&&bridge.get(0).time>W) {
 				//다리위의 무게에서 도착한 트럭의 무게를 빼준다
 				weightSum -= bridge.get(0).weight;
-				//다리위에서 트럭 제거
+				//2.다리위에서 트럭 제거
 				bridge.remove(0);
 			}
-			//다음 다리에 진입할 트럭의 무게와 현재 다리위의 무게를 더한 값이 다리의 최대하중보다 작다면
+			//3.다음 다리에 진입할 트럭의 무게와 현재 다리위의 무게를 더한 값이 다리의 최대하중보다 작다면
 			if(trucks.peek().weight+weightSum <= L && bridge.size()<W) {
 				Truck current = trucks.poll();
-				weightSum += current.weight;
-			
+				weightSum += current.weight;			
 				bridge.add(current);
 			}
 		}	
