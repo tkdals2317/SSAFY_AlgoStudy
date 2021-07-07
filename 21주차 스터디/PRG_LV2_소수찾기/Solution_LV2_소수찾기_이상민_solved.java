@@ -1,14 +1,14 @@
 import java.util.*;
 import java.io.*;
-class Solution_LV2_소수찾기_이상민_solved {
+class Solution {
     static char [] input;
     static boolean [] visited;
     static int length; 
     static HashMap<Integer, Integer> map = new HashMap<>();
     public int solution(String numbers) {
         int answer = 0;
-        
         length = numbers.length();
+        
         input = numbers.toCharArray();
         visited = new boolean[length];
 
@@ -44,7 +44,8 @@ class Solution_LV2_소수찾기_이상민_solved {
         boolean isPrime = true;
         //0과 1은 소수가 아님
         if(num == 0 || num ==1) return false;
-        for(int i = 2; i < num; i++){
+        //제곱근 사용시 연산 시간 단축 가능
+        for(int i = 2; i <= Math.sqrt(num); i++){
             if(num%i==0) return false;
         }
         //위의 내용을 통과했다면 소수
