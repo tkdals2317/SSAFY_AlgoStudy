@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-class Solution {
+class Solution_LV2_소수찾기_이상민_solved {
     static char [] input;
     static boolean [] visited;
     static int length; 
