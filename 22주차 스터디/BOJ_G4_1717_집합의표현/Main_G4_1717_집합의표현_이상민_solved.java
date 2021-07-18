@@ -3,17 +3,20 @@ import java.io.*;
 public class Main_G4_1717_집합의표현_이상민_solved {
 	static int N, M;
 	static int [] parents;
+	
 	//각각의 부모를 자기자신으로 둔 집합 만들기
 	static void make(){
 		for(int i = 0; i <= N; i++) {
 			parents[i] = i;
 		}
 	}
+	
 	//부모찾기
 	static int find(int a) {
 		if(parents[a]==a) return a;
 		return parents[a] = find(parents[a]);
 	}	
+	
 	//합집합
 	static boolean union(int a, int b) {
 		int aRoot = find(a);
