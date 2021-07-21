@@ -57,7 +57,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 				x = j;
 			}
 		}
- 		System.out.println("start="+startVal+" end="+endVal+" c1="+c1+" c2="+c2 +" minD="+minD);
+ 		//System.out.println("start="+startVal+" end="+endVal+" c1="+c1+" c2="+c2 +" minD="+minD);
  		
 		// get d
 		int d = 0, t1 = 0, t2;
