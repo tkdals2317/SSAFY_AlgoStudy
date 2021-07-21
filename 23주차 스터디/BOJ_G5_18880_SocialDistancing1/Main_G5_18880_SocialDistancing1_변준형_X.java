@@ -102,7 +102,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 				temp = t2;
 			if (temp > d)
 				d = temp;
-			 System.out.println(temp);
+			 //System.out.println(temp);
 		}
 		
 		// check for c1 c2
