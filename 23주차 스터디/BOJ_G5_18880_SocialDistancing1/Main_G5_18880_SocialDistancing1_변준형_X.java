@@ -57,7 +57,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 				x = j;
 			}
 		}
- 		System.out.println("start="+startVal+" end="+endVal+" c1="+c1+" c2="+c2 +" minD="+minD);
+ 		//System.out.println("start="+startVal+" end="+endVal+" c1="+c1+" c2="+c2 +" minD="+minD);
  		
 		// get d
 		int d = 0, t1 = 0, t2;
@@ -72,7 +72,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 			d = t1;
 		else
 			d = t2;
-		System.out.println(d);
+		//System.out.println(d);
 		
 		// check for end c2
 		t1 = endVal;
@@ -82,7 +82,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 			temp = t2;
 		if (temp > d)
 			d = temp;
- 		System.out.println(temp);
+ 		//System.out.println(temp);
  		
 		// check for start end
 		int j = 0, tt = 0;
@@ -102,7 +102,7 @@ public class Main_G5_18880_SocialDistancing1_변준형_X {
 				temp = t2;
 			if (temp > d)
 				d = temp;
-			 System.out.println(temp);
+			 //System.out.println(temp);
 		}
 		
 		// check for c1 c2
