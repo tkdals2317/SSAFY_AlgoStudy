@@ -28,7 +28,7 @@ public static void main(String[] args) {
                         min = Math.abs(Integer.parseInt(n)-Integer.parseInt(tmp));
                         closer = tmp; 
                     }
-                }
+                }d
             }
             
             int result1 = Math.abs(Integer.parseInt(n)-100); //result1에는 현재채널인 100에서 +와-만으로 n까지 갈때의 횟수를 저장
