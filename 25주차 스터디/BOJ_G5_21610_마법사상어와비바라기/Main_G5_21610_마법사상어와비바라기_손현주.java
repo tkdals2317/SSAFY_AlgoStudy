@@ -3,7 +3,7 @@ import java.util.*;
 
 public class bj_21610_G5 {
 
-	static class Order {
+	static class Order { // 명령을 담을 클래스 
 		int d, s;
 
 		Order(int d, int s) {
@@ -12,19 +12,9 @@ public class bj_21610_G5 {
 		}
 	}
 
-	static class Rain {
-		int x, y;
-		int water;
-
-		Rain(int x, int y, int water) {
-			this.x = x;
-			this.y = y;
-			this.water = water;
-		}
-	}
-
 	static int N, M, map[][];
 	static Queue<Order> orders = new LinkedList<>();
+	static int[][] dir = { { 0, -1, -1, -1, 0, 1, 1, 1 }, { -1, -1, 0, 1, 1, 1, 0, -1 } }; //8방향
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -47,14 +37,8 @@ public class bj_21610_G5 {
 		System.out.println(process());
 	}
 
-	// 8방향 순서대로
-	static int[][] dir = { { 0, -1, -1, -1, 0, 1, 1, 1 }, { -1, -1, 0, 1, 1, 1, 0, -1 } };
-
 	static int process() {
-		int answer = 0;
-
-		// 1. 첫번 째 비구름은 ( N,1 ), ( N,2 ), ( N-1,1 ), ( N-1,2 )에 생긴다 ->배열값으로생각하면 다 1씩
-		// 빼줘야함!!
+		// 1. 첫번 째 비구름은 ( N,1 ), ( N,2 ), ( N-1,1 ), ( N-1,2 )에 생긴다 ->배열값으로생각하면 다 1씩 뺀다.
 		Queue<int[]> clouds = new LinkedList<>();
 		clouds.offer(new int[] { N - 1, 0 });
 		clouds.offer(new int[] { N - 1, 1 });
@@ -101,15 +85,20 @@ public class bj_21610_G5 {
 				}
 			}
 		}
-		// 7. 합을 구한다
+		// 7. 합을 반환해준다.
+		return getWaterSum();
+	}
+	
+	static int getWaterSum() { // 물의 합을 더해준다.
+		int sum = 0;
 		for (int i = 0; i < N; ++i) {
 			for (int j = 0; j < N; ++j) {
-				answer += map[i][j];
+				sum += map[i][j];
 			}
 		}
-		return answer;
+		return sum;
 	}
-
+	
 	static int getWaterCnt(int[] nCloud) { // 대각선 길이 -1 에 물이 몇개가 있는지
 		int cnt = 0;
 		for (int d = 1; d < 8; d += 2) { // 대각선은 1,3,5,7에있음
